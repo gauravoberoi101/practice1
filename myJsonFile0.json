@@ -1,0 +1,39 @@
+{
+	"random": 52,
+	"random float": 6.2,
+	"bool": true,
+	"date": "1993-07-23",
+	"regEx": "helloooooo to you",
+	"enum": "online",
+	"firstname": "Benita",
+	"lastname": "Zaslow",
+	"city": "Santa Cruz de la Sierra",
+	"country": "Cuba",
+	"countryCode": "IN",
+	"email uses current data": "Benita.Zaslow@gmail.com",
+	"email from expression": "Benita.Zaslow@yopmail.com",
+	"array": [
+		"Jinny",
+		"Winifred",
+		"Elyssa",
+		"Petronia",
+		"Mellicent"
+	],
+	"array of objects": [
+		{
+			"index": 0,
+			"index start at 5": 5
+		},
+		{
+			"index": 1,
+			"index start at 5": 6
+		},
+		{
+			"index": 2,
+			"index start at 5": 7
+		}
+	],
+	"Modestia": {
+		"age": 77
+	}
+}
