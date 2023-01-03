@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class App_cc extends Component {
+export default class ItemSearch extends Component {
   constructor(){
 	  super();
 	  
@@ -21,20 +21,27 @@ export default class App_cc extends Component {
 			}
 			
 		  ],
-		  title: []
+		  title: [],
+		  searchFilter:[],
+		  seachValue: null,
+		  startSearch: false
 	  }
   }
   componentDidMount(){
 	fetch('https://jsonplaceholder.typicode.com/todos/')
 	.then(response => response.json())
-	.then(json => {console.log(json)
-		this.setState({title:json}, ()=>{
-			console.log(this.state.title)
-		})
+	.then(json => {//console.log(json)
+		this.setState({title:json})
 	}
 	)
   }
 	render() {
+		console.log('this.state.title',this.state.title)
+		let filteredValue = this.state.startSearch ? this.state.title.filter(each=>{
+		//	console.log(each.toLowerCase().includes(this.state.seachValue))
+			return each.title.includes(this.state.seachValue)
+		}) : this.state.title
+		console.log('filteredValue',filteredValue)
 	return (
 	  <div>
 		  {/*{this.state.robots.map((robot, i)=>{
@@ -45,12 +52,17 @@ export default class App_cc extends Component {
 	  })
 	  
 	  }*/}
-	  
-	  {this.state.title.map((eachTitle, i)=>{
+	  <input type="text" onChange={(e)=>{
+		this.setState({startSearch: true})
+		this.setState({seachValue: e.target.value}, ()=>{
+			console.log('seachValue',this.state.seachValue)
+		})
+	  }}/>
+	  {filteredValue.map((eachTitle, i)=>{
 		//  console.log(eachTitle.title)
 		  return(
 			  <>
-			  <p key={i}>{eachTitle.title}</p>
+			  <p key={i}>{i+1}) {eachTitle.title}</p>
 			  </>
 		  )
 	  })}
